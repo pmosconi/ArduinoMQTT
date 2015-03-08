@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="_core">
+      <UniqueIdentifier>{6aa9a498-34ca-4e35-918d-e8dbfc805842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_libraries">
+      <UniqueIdentifier>{8353371d-485f-4628-abaa-38677ca308ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_libraries\SPI">
+      <UniqueIdentifier>{a02d1011-fd1e-4d89-a44a-4244e85c0d67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_libraries\WiFi">
+      <UniqueIdentifier>{14c7cf36-4acc-4301-90b1-240389341d24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_libraries\WiFi\src">
+      <UniqueIdentifier>{f0cfd2c6-44ff-4d29-a3b7-d9b5135d4167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_libraries\WiFi\src\utility">
+      <UniqueIdentifier>{d7390611-9e16-4815-8ec2-531aaf85a190}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_libraries\MQTTClient">
+      <UniqueIdentifier>{861462d2-1dac-4ab7-bf3a-2d0a4f835d59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_libraries\PubSubClient">
+      <UniqueIdentifier>{128bebe7-ad71-4cf1-aa5a-82fb2e5dd8e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_libraries\OneWire">
+      <UniqueIdentifier>{407498a3-9d8b-48f8-a8f9-900fd9dfc8ee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Visual Micro\.mqtt_wifi_basic.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Arduino.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\binary.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Client.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial_private.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\IPAddress.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\new.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Print.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Printable.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Server.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Stream.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Udp.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\USBAPI.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\USBCore.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\USBDesc.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WCharacter.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_private.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard\pins_arduino.h">
+      <Filter>_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SPI\SPI.h">
+      <Filter>_libraries\SPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFi.h">
+      <Filter>_libraries\WiFi\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiClient.h">
+      <Filter>_libraries\WiFi\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiServer.h">
+      <Filter>_libraries\WiFi\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiUdp.h">
+      <Filter>_libraries\WiFi\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\debug.h">
+      <Filter>_libraries\WiFi\src\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\server_drv.h">
+      <Filter>_libraries\WiFi\src\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\spi_drv.h">
+      <Filter>_libraries\WiFi\src\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\wifi_drv.h">
+      <Filter>_libraries\WiFi\src\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\wifi_spi.h">
+      <Filter>_libraries\WiFi\src\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\wl_definitions.h">
+      <Filter>_libraries\WiFi\src\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\wl_types.h">
+      <Filter>_libraries\WiFi\src\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\Countdown.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\EthernetStack.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\FP.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\IPStack.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\MQTTClient.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\MQTTConnect.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\MQTTFormat.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\MQTTLogging.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\MQTTPacket.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\MQTTPublish.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\MQTTSubscribe.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\MQTTUnsubscribe.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\StackTrace.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\WifiIPStack - Copy.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\MQTTClient\WifiIPStack.h">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\PubSubClient\PubSubClient.h">
+      <Filter>_libraries\PubSubClient</Filter>
+    </ClInclude>
+    <ClInclude Include="mqtt_wifi_arduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\OneWire\OneWire.h">
+      <Filter>_libraries\OneWire</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\abi.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\CDC.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial0.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial1.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial2.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial3.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HID.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\hooks.c">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\IPAddress.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\main.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\new.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Print.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Stream.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Tone.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\USBCore.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WInterrupts.c">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring.c">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_analog.c">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_digital.c">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.c">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_shift.c">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WMath.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.cpp">
+      <Filter>_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SPI\SPI.cpp">
+      <Filter>_libraries\SPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFi.cpp">
+      <Filter>_libraries\WiFi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiClient.cpp">
+      <Filter>_libraries\WiFi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiServer.cpp">
+      <Filter>_libraries\WiFi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiUdp.cpp">
+      <Filter>_libraries\WiFi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\server_drv.cpp">
+      <Filter>_libraries\WiFi\src\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\spi_drv.cpp">
+      <Filter>_libraries\WiFi\src\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\wifi_drv.cpp">
+      <Filter>_libraries\WiFi\src\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MQTTClient\MQTTConnectClient.c">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MQTTClient\MQTTConnectServer.c">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MQTTClient\MQTTDeserializePublish.c">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MQTTClient\MQTTFormat.c">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MQTTClient\MQTTPacket.c">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MQTTClient\MQTTSerializePublish.c">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MQTTClient\MQTTSubscribeClient.c">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MQTTClient\MQTTSubscribeServer.c">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MQTTClient\MQTTUnsubscribeClient.c">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MQTTClient\MQTTUnsubscribeServer.c">
+      <Filter>_libraries\MQTTClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\PubSubClient\PubSubClient.cpp">
+      <Filter>_libraries\PubSubClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\OneWire\OneWire.cpp">
+      <Filter>_libraries\OneWire</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mqtt_wifi_arduino.ino" />
+  </ItemGroup>
+</Project>
