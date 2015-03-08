@@ -8,6 +8,7 @@ MQTT Wifi Arduino
 	Temperature/Messages
 			   /Alarms
 			   /Statuses
+			   /Command
 */
 
 // TO DO
@@ -35,7 +36,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	DEBUG_PRINT(F("---Message End"));
 
 	//check and execute command
-	if (!strcmp(cmd, "getTemp")) {
+	if (!strcmp(cmd, "getValue")) {
 		if (publishTemp()) {
 			DEBUG_PRINT(F("Published"));
 			ledOn(Green_led);
