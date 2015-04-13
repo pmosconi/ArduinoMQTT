@@ -45,10 +45,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard;C:\Users\Paolo Mosconi\Documents\Arduino\mqtt_wifi_basic;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SPI;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SPI\utility;C:\Program Files (x86)\Arduino\libraries\WiFi\src;C:\Program Files (x86)\Arduino\libraries\WiFi\src\utility;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\PubSubClient;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\PubSubClient\utility;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\OneWire;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\OneWire\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers;C:\Users\Paolo Mosconi\Documents\Arduino\libraries;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;c:\program files (x86)\arduino\hardware\tools\avr\avr\;c:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.8.1\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard;C:\Users\Paolo Mosconi\Documents\Arduino\mqtt_wifi_basic;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SPI;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SPI\utility;C:\Program Files (x86)\Arduino\libraries\WiFi\src;C:\Program Files (x86)\Arduino\libraries\WiFi\src\utility;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\PubSubClient;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\PubSubClient\utility;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\OneWire;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\OneWire\utility;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\ArduinoJson;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\ArduinoJson\utility;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\FreqMeasure;C:\Users\Paolo Mosconi\Documents\Arduino\libraries\FreqMeasure\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers;C:\Users\Paolo Mosconi\Documents\Arduino\libraries;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;c:\program files (x86)\arduino\hardware\tools\avr\avr\;c:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.8.1\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>C:\Users\Paolo Mosconi\Documents\Arduino\mqtt_wifi_basic\Visual Micro\.mqtt_wifi_basic.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
-      <PreprocessorDefinitions>__AVR_ATmega328p__;__AVR_ATmega328P__;ARDUINO=160;ARDUINO_MAIN;__AVR__;__avr__;F_CPU=16000000L;__cplusplus;GCC_VERSION=40301;ARDUINO_ARCH_AVR;ARDUINO_AVR_UNO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__AVR_ATmega328p__;__AVR_ATmega328P__;ARDUINO=160;ARDUINO_MAIN;__AVR__;__avr__;F_CPU=16000000L;__cplusplus;GCC_VERSION=40801;ARDUINO_ARCH_AVR;ARDUINO_AVR_UNO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -105,21 +105,8 @@
     <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiClient.h" />
     <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiServer.h" />
     <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiUdp.h" />
-    <ClInclude Include="..\libraries\MQTTClient\Countdown.h" />
-    <ClInclude Include="..\libraries\MQTTClient\EthernetStack.h" />
-    <ClInclude Include="..\libraries\MQTTClient\FP.h" />
-    <ClInclude Include="..\libraries\MQTTClient\IPStack.h" />
-    <ClInclude Include="..\libraries\MQTTClient\MQTTClient.h" />
-    <ClInclude Include="..\libraries\MQTTClient\MQTTConnect.h" />
-    <ClInclude Include="..\libraries\MQTTClient\MQTTFormat.h" />
-    <ClInclude Include="..\libraries\MQTTClient\MQTTLogging.h" />
-    <ClInclude Include="..\libraries\MQTTClient\MQTTPacket.h" />
-    <ClInclude Include="..\libraries\MQTTClient\MQTTPublish.h" />
-    <ClInclude Include="..\libraries\MQTTClient\MQTTSubscribe.h" />
-    <ClInclude Include="..\libraries\MQTTClient\MQTTUnsubscribe.h" />
-    <ClInclude Include="..\libraries\MQTTClient\StackTrace.h" />
-    <ClInclude Include="..\libraries\MQTTClient\WifiIPStack - Copy.h" />
-    <ClInclude Include="..\libraries\MQTTClient\WifiIPStack.h" />
+    <ClInclude Include="..\libraries\ArduinoJson\ArduinoJson.h" />
+    <ClInclude Include="..\libraries\FreqMeasure\FreqMeasure.h" />
     <ClInclude Include="..\libraries\OneWire\OneWire.h" />
     <ClInclude Include="..\libraries\PubSubClient\PubSubClient.h" />
     <ClInclude Include="mqtt_wifi_arduino.h" />
@@ -158,16 +145,8 @@
     <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiClient.cpp" />
     <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiServer.cpp" />
     <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\WiFiUdp.cpp" />
-    <ClCompile Include="..\libraries\MQTTClient\MQTTConnectClient.c" />
-    <ClCompile Include="..\libraries\MQTTClient\MQTTConnectServer.c" />
-    <ClCompile Include="..\libraries\MQTTClient\MQTTDeserializePublish.c" />
-    <ClCompile Include="..\libraries\MQTTClient\MQTTFormat.c" />
-    <ClCompile Include="..\libraries\MQTTClient\MQTTPacket.c" />
-    <ClCompile Include="..\libraries\MQTTClient\MQTTSerializePublish.c" />
-    <ClCompile Include="..\libraries\MQTTClient\MQTTSubscribeClient.c" />
-    <ClCompile Include="..\libraries\MQTTClient\MQTTSubscribeServer.c" />
-    <ClCompile Include="..\libraries\MQTTClient\MQTTUnsubscribeClient.c" />
-    <ClCompile Include="..\libraries\MQTTClient\MQTTUnsubscribeServer.c" />
+    <ClCompile Include="..\libraries\ArduinoJson\ArduinoJson.cpp" />
+    <ClCompile Include="..\libraries\FreqMeasure\FreqMeasure.cpp" />
     <ClCompile Include="..\libraries\OneWire\OneWire.cpp" />
     <ClCompile Include="..\libraries\PubSubClient\PubSubClient.cpp" />
   </ItemGroup>

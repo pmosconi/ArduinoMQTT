@@ -31,14 +31,17 @@
     <Filter Include="_libraries\WiFi\src\utility">
       <UniqueIdentifier>{d7390611-9e16-4815-8ec2-531aaf85a190}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_libraries\MQTTClient">
-      <UniqueIdentifier>{861462d2-1dac-4ab7-bf3a-2d0a4f835d59}</UniqueIdentifier>
-    </Filter>
     <Filter Include="_libraries\PubSubClient">
       <UniqueIdentifier>{128bebe7-ad71-4cf1-aa5a-82fb2e5dd8e0}</UniqueIdentifier>
     </Filter>
     <Filter Include="_libraries\OneWire">
       <UniqueIdentifier>{407498a3-9d8b-48f8-a8f9-900fd9dfc8ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_libraries\ArduinoJson">
+      <UniqueIdentifier>{fe23d08d-b585-4ac9-b9d1-99117292b738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_libraries\FreqMeasure">
+      <UniqueIdentifier>{ad623c79-6d83-44ba-8648-cc6e3a4f03f8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -138,51 +141,6 @@
     <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\wl_types.h">
       <Filter>_libraries\WiFi\src\utility</Filter>
     </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\Countdown.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\EthernetStack.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\FP.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\IPStack.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\MQTTClient.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\MQTTConnect.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\MQTTFormat.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\MQTTLogging.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\MQTTPacket.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\MQTTPublish.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\MQTTSubscribe.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\MQTTUnsubscribe.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\StackTrace.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\WifiIPStack - Copy.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libraries\MQTTClient\WifiIPStack.h">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClInclude>
     <ClInclude Include="..\libraries\PubSubClient\PubSubClient.h">
       <Filter>_libraries\PubSubClient</Filter>
     </ClInclude>
@@ -191,6 +149,12 @@
     </ClInclude>
     <ClInclude Include="..\libraries\OneWire\OneWire.h">
       <Filter>_libraries\OneWire</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\ArduinoJson\ArduinoJson.h">
+      <Filter>_libraries\ArduinoJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\FreqMeasure\FreqMeasure.h">
+      <Filter>_libraries\FreqMeasure</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -290,41 +254,17 @@
     <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\libraries\WiFi\src\utility\wifi_drv.cpp">
       <Filter>_libraries\WiFi\src\utility</Filter>
     </ClCompile>
-    <ClCompile Include="..\libraries\MQTTClient\MQTTConnectClient.c">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libraries\MQTTClient\MQTTConnectServer.c">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libraries\MQTTClient\MQTTDeserializePublish.c">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libraries\MQTTClient\MQTTFormat.c">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libraries\MQTTClient\MQTTPacket.c">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libraries\MQTTClient\MQTTSerializePublish.c">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libraries\MQTTClient\MQTTSubscribeClient.c">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libraries\MQTTClient\MQTTSubscribeServer.c">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libraries\MQTTClient\MQTTUnsubscribeClient.c">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libraries\MQTTClient\MQTTUnsubscribeServer.c">
-      <Filter>_libraries\MQTTClient</Filter>
-    </ClCompile>
     <ClCompile Include="..\libraries\PubSubClient\PubSubClient.cpp">
       <Filter>_libraries\PubSubClient</Filter>
     </ClCompile>
     <ClCompile Include="..\libraries\OneWire\OneWire.cpp">
       <Filter>_libraries\OneWire</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\ArduinoJson\ArduinoJson.cpp">
+      <Filter>_libraries\ArduinoJson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\FreqMeasure\FreqMeasure.cpp">
+      <Filter>_libraries\FreqMeasure</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

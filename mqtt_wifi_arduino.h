@@ -7,14 +7,18 @@ const char wifiPass[] = "Cicciob8";		// network password (use for WPA, or use as
 const char mqttUser[] = "testmqtt1";	// MQTT user
 const char mqttPass[] = "Password123!";	// MQTT password
 // MQTT topic and subtopics
-const char baseTopic[] = "Temperature";		
-const char messageTopic[] = "/Messages";
-const char alarmTopic[] = "/Alarms";
-const char statusTopic[] = "/Statuses";
-const char cmdTopic[] = "/Command";
+const char baseTopic[] PROGMEM = "Temperature";		
+const char messageTopic[] PROGMEM = "/Messages";
+const char alarmTopic[] PROGMEM = "/Alarms";
+const char statusTopic[] PROGMEM = "/Statuses";
+const char cmdTopic[] PROGMEM = "/Command";
+// JSON key for commands to execute
+const char cmdKey[] = "Command";
+const char HzKey[] = "Hz";
+const char freqSampleKey[] = "fSample";
+const char intervalKey[] = "Interval";
 
-// publishing interval: 300000 ms = 5 min
-#define interval 300000
+unsigned long interval = 300000l;	// publishing interval: 300000 ms = 5 min
 
 unsigned long prevTime = 0;
 
@@ -22,7 +26,16 @@ char mqttClientId[18];					// ClientId
 
 int status = WL_IDLE_STATUS;
 char printbuf[100];
-char tempbuf[20];
+//char tempbuf[20];
+char jtempbuf[100];
+
+// frequency of the playing note at setup
+#define curFreq 50
+double freqSum = 0;	// frequency measure before average on reads
+int freqCount = 0;	// frequency read count
+float lastReadFreq = 0; // last read frequecy
+int freqMaxCount = 10;	// frequency sampling
+
 
 // WiFi Shield Reserved pins
 //  4 SS for SD Card
@@ -37,12 +50,16 @@ char tempbuf[20];
 
 // LED pins
 #define Red_led 6
-#define Yellow_led 8
+#define Yellow_led 2
 #define Green_led 9
+
+// Frequency input and output pins
+#define freqOut_pin A0
+#define freqIn_pin 8
 
 // debugger definition and macro
 // uncomment the following line to debug
-// #define DEBUG
+ #define DEBUG
 
 #ifdef DEBUG
 #define DEBUG_PRINT(x)  Serial.println(x)

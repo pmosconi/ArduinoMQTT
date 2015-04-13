@@ -9,11 +9,21 @@ MQTT Wifi Arduino
 			   /Alarms
 			   /Statuses
 			   /Command
-*/
+- output structure:
+	{"Key":value}
+	where Key is Message | Error | Temperature
+- input structure:
+	{"Command":"getValue"}
+	{"Command":"setFreq","Hz":val}
+	{"Command":"setParam","fSample":num}
+	{"Command":"setParam","Interval":sec}
+	*/
 
 // TO DO
 // Provare a cambiare Wifi.cpp http://stackoverflow.com/questions/20339952/mosquitto-socket-read-error-arduino-client
 //	per last will che non va
+//
+// HO FINITO LA MEMORIA... interval viene sovrascritto
 
 
 #include <SPI.h>
@@ -21,6 +31,9 @@ MQTT Wifi Arduino
 #include <WiFiClient.h>
 #include <PubSubClient.h>
 #include <OneWire/OneWire.h>
+#include <ArduinoJson/ArduinoJson.h>
+#include <FreqMeasure/FreqMeasure.h>
+
 
 #include "mqtt_wifi_arduino.h"
 
@@ -35,20 +48,13 @@ void callback(char* topic, byte* payload, unsigned int length) {
 	DEBUG_PRINT(cmd);
 	DEBUG_PRINT(F("---Message End"));
 
-	//check and execute command
-	if (!strcmp(cmd, "getValue")) {
-		if (publishTemp()) {
-			DEBUG_PRINT(F("Published"));
-			ledOn(Green_led);
-		}
-		else {
-			DEBUG_PRINT(F("Error in publishing"));
-			ledOn(Red_led);
-		}
+	//Parse and validate JSON
+	// StaticJsonBuffer<100> jsonBuffer;
+	DynamicJsonBuffer jsonBuffer;
 
-	}
-	else {
-		if (mqttPublish(baseTopic, statusTopic, "Unrecognized Command")) {
+	JsonObject& json = jsonBuffer.parseObject(cmd);
+	if (!json.success()) {
+		if (mqttPublish(baseTopic, statusTopic, "Error", "JSON Error")) {
 			DEBUG_PRINT(F("Published"));
 			ledOn(Yellow_led);
 		}
@@ -56,11 +62,77 @@ void callback(char* topic, byte* payload, unsigned int length) {
 			DEBUG_PRINT(F("Error in publishing"));
 			ledOn(Red_led);
 		}
-
+		free(cmd);
+		return;
 	}
 
-	// Free the memory
+	//check and execute command getValue
+	if (!strcmp_P(json[cmdKey], PSTR("getValue"))) {
+		if (publishTemp() && publishReadFreq(lastReadFreq) && publishInterval()) {
+			DEBUG_PRINT(F("Published"));
+			ledOn(Green_led);
+		}
+		else {
+			DEBUG_PRINT(F("Error in publishing"));
+			ledOn(Red_led);
+		}
+		free(cmd);
+		return;
+	}
+
+	//check and execute command setFreq
+	if (!strcmp_P(json[cmdKey], PSTR("setFreq")) && json[HzKey] > 0) {
+		if (publishSetFreq(json[HzKey])) {
+			DEBUG_PRINT(F("Published"));
+			ledOn(Green_led);
+		}
+		else {
+			DEBUG_PRINT(F("Error in publishing"));
+			ledOn(Red_led);
+		}
+		free(cmd);
+		return;
+	}
+
+	//check and execute command setParam
+	if (!strcmp_P(json[cmdKey], PSTR("setParam")) && json[freqSampleKey] > 0) {
+		if (publishSetFreqSample(json[freqSampleKey])) {
+			DEBUG_PRINT(F("Published"));
+			ledOn(Green_led);
+		}
+		else {
+			DEBUG_PRINT(F("Error in publishing"));
+			ledOn(Red_led);
+		}
+		free(cmd);
+		return;
+	}
+
+	//check and execute command setParam
+	if (!strcmp_P(json[cmdKey], PSTR("setParam")) && json[intervalKey] > 0) {
+		if (publishSetInterval(json[intervalKey])) {
+			DEBUG_PRINT(F("Published"));
+			ledOn(Green_led);
+		}
+		else {
+			DEBUG_PRINT(F("Error in publishing"));
+			ledOn(Red_led);
+		}
+		free(cmd);
+		return;
+	}
+
+	// else: unrocognized command
+	if (mqttPublish(baseTopic, statusTopic, "Error", "Invalid Command")) {
+		DEBUG_PRINT(F("Published"));
+		ledOn(Yellow_led);
+	}
+	else {
+		DEBUG_PRINT(F("Error in publishing"));
+		ledOn(Red_led);
+	}
 	free(cmd);
+	return;
 }
 
 WiFiClient WFclient;
@@ -77,16 +149,65 @@ void inline ledOn(int led) {
 
 // subscribe inline function
 boolean inline mqttSubscribe(const char *base, const char *sub) {
-	strcpy(printbuf, base);
-	strcat(printbuf, sub);
+	strcpy_P(printbuf, base);
+	strcat_P(printbuf, sub);
 	return (client.subscribe(printbuf));
 }
 
 // publish inline function
-boolean inline mqttPublish(const char *base, const char *sub, char *payload) {
-	strcpy(printbuf, base);
-	strcat(printbuf, sub);
-	return (client.publish(printbuf, payload));
+boolean inline mqttPublish(const char *base, const char *sub, const char *key, const char *payload) {
+	strcpy_P(printbuf, base);
+	strcat_P(printbuf, sub);
+	StaticJsonBuffer<100> jsonBuffer;
+	JsonObject& json = jsonBuffer.createObject();
+	json[key] = payload;
+	json.printTo(jtempbuf, sizeof(jtempbuf));
+	DEBUG_PRINT(printbuf);
+	return (client.publish(printbuf, jtempbuf));
+}
+
+boolean inline mqttPublish(const char *base, const char *sub, const char *key, float payload) {
+	strcpy_P(printbuf, base);
+	strcat_P(printbuf, sub);
+	StaticJsonBuffer<100> jsonBuffer;
+	JsonObject& json = jsonBuffer.createObject();
+	json[key].set(payload,2);
+	json.printTo(jtempbuf, sizeof(jtempbuf));
+	DEBUG_PRINT(printbuf);
+	return (client.publish(printbuf, jtempbuf));
+}
+
+// read temperature from sensor and publish it to message topic
+boolean inline publishTemp() {
+	return mqttPublish(baseTopic, messageTopic, "Temp C", getTemp());
+}
+
+// publish message interval value to message topic
+boolean inline publishInterval() {
+	return mqttPublish(baseTopic, messageTopic, "Msg interval sec", interval / 1000);
+}
+
+// set wave output frequency and publish it to message topic
+boolean inline publishSetFreq(int freq) {
+	tone(freqOut_pin, freq);
+	return mqttPublish(baseTopic, messageTopic, "Set Freq Hz", freq);
+}
+
+// set frequency sampling value and publish it to message topic
+boolean inline publishSetFreqSample(int samples) {
+	freqMaxCount = samples;
+	return mqttPublish(baseTopic, messageTopic, "Freq Samples", samples);
+}
+
+// set message interval value and publish it to message topic
+boolean inline publishSetInterval(int seconds) {
+	interval = seconds * 1000l;
+	return mqttPublish(baseTopic, messageTopic, "Msg Interval sec", seconds);
+}
+
+// publish to message topic the measured frequency
+boolean inline publishReadFreq(float freq) {
+	return mqttPublish(baseTopic, messageTopic, "Measured Freq Hz", freq);
 }
 
 void setup()
@@ -104,7 +225,15 @@ void setup()
 	digitalWrite(Yellow_led, LOW);
 	digitalWrite(Green_led, LOW);
 
-	// check for the presence of the shield:
+	// init freq pins
+	pinMode(freqIn_pin, INPUT);
+	pinMode(freqOut_pin, OUTPUT);
+
+	tone(freqOut_pin, curFreq);
+	FreqMeasure.begin();
+
+	// check for the presence of the shield
+	delay(5000); // wait 5 seconds for the shield to boot
 	if (WiFi.status() == WL_NO_SHIELD) {
 		DEBUG_PRINT(F("WiFi shield not present"));
 		// don't continue:
@@ -122,7 +251,7 @@ void setup()
 			ledOn(Red_led);
 		}
 
-		if (mqttPublish(baseTopic, statusTopic, "Now Online")) {
+		if (mqttPublish(baseTopic, statusTopic, "Message", "Now Online")) {
 			DEBUG_PRINT(F("Published"));
 			ledOn(Green_led);
 		}
@@ -174,8 +303,27 @@ void loop()
 			DEBUG_PRINT(F("Error in publishing"));
 			ledOn(Red_led);
 		}
+		// publish measured frequency to message topic
+		if (publishReadFreq(lastReadFreq)) {
+			DEBUG_PRINT(F("Published"));
+			ledOn(Green_led);
+			prevTime = curTime;
+		}
+		else {
+			DEBUG_PRINT(F("Error in publishing"));
+			ledOn(Red_led);
+		}
+
 	}
-	delay(5000);
+	// read frequency
+	float frequency = frequencyRead();
+	if (frequency > 0 && abs(frequency - lastReadFreq) > .01 ) {
+		lastReadFreq = frequency;
+		DEBUG_PRINT(F("Frequency:"));
+		DEBUG_PRINT(lastReadFreq);
+	}
+
+	delay(1000);
 	client.loop();
 }
 
@@ -220,7 +368,7 @@ bool doConnect(char *ClientId)
 	// attempt to connect to Wifi network:
 	while (status != WL_CONNECTED) {
 		DEBUG_PRINT(F("Connecting to network"));
-		// Connect to WPA/WPA2 network. Change this line if using open or WEP network:    
+		// Connect to WPA/WPA2 network. Change this line if using open or WEP network:   
 		status = WiFi.begin((char*)ssid, (char*)wifiPass);
 		// wait 5 seconds for connection:
 		delay(5000);
@@ -248,15 +396,6 @@ bool doConnect(char *ClientId)
 	DEBUG_PRINT(F("Connected to MQTT server"));
 	ledOn(Green_led);
 	return retval;
-}
-
-// read temperature from sensor and publish it to message topic
-boolean publishTemp() {
-	float temperature = getTemp();
-	String tString = "Temp.: " + String(dtostrf(temperature, 1, 2, tempbuf)) + " C";
-	tString.toCharArray(tempbuf, 20);
-	DEBUG_PRINT(tempbuf);
-	return mqttPublish(baseTopic, messageTopic, tempbuf);
 }
 
 //return the temperature from one DS18S20 in DEG Celsius
@@ -307,4 +446,28 @@ float getTemp() {
 
 	return TemperatureSum;
 
+}
+
+// start frequency output on freqOut_pin
+//void playFreq(int freq) {
+//	delay(curFreq * 1.3);
+//	curFreq = freq;
+//	tone(freqOut_pin, freq);
+//
+//}
+
+// frequency measure
+float frequencyRead() {
+	float frequency = -1;
+
+	if (FreqMeasure.available()) {
+		// average several reading together
+		freqSum += FreqMeasure.read();
+		if (freqCount++ > freqMaxCount) {
+			frequency = FreqMeasure.countToFrequency(freqSum / freqCount);
+			freqSum = 0;
+			freqCount = 0;
+		}
+	}
+	return frequency;
 }
